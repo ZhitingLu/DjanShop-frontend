@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { getProducts } from "./helper/coreapicalls";
+import Base from './Base';
+import "../styles.css";
 
-export default function Home() {
+
+const Home = () => {
 
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(false);
@@ -26,7 +29,7 @@ export default function Home() {
     }, []);
 
     return (
-        <div>
+        <Base title="Home page" description="Welcome to my store" >
             <h1>Home component</h1>
             <div className='Row'>
                 {products.map((product, index) => {
@@ -37,6 +40,8 @@ export default function Home() {
                     )
                 })}
             </div>
-        </div>
+        </Base>
     )
 }
+
+export default Home;
