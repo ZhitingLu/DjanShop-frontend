@@ -1,6 +1,6 @@
 import React from 'react'
 
-const imgaeHelper = ({ product }) => {
+const imageHelper = ({ product }) => {
     const imageUrl = product ? product.image : `https://www.pexels.com/photo/camera-on-chair-2062324/`;
     return (
         <div className='rounded border border-success p-2'>
@@ -12,4 +12,4 @@ const imgaeHelper = ({ product }) => {
     )
 }
 
-export default imgaeHelper
+export default imageHelper;
