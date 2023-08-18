@@ -4,16 +4,16 @@ import React from 'react';
 const Base = ({
     title = "My title",
     description = "My description",
-    className = "bg-dark text-white p-4",
+    className = "bg-dark text-white p-4 container",
     children
     // 'children' is responsible for injecting components
 }) => {
     return (
         <div>
-            <div className='container-fluid'>
+            <div className='mb-2'>
                 <div className='jumbotron bg-dark text-white text-center'>
-                    <h2 className='display-4'>{title}</h2>
-                    <p className='lead'>{description}</p>
+                    <h2 className='display-4 mt-1 text-warning'>{title}</h2>
+                    <p className='lead text-white'>{description}</p>
                 </div>
                 <div className={className}>{children}</div>
             </div>
