@@ -6,13 +6,18 @@ const Card = ({
     addToCart = true,
     removeFromCart = false,
 }) => {
+    const cartTitle = product ? product.name : "A photo";
+    const cartDescription = product ? product.description : "A photo of the product";
+    const cartPrice = product ? product.price : "Default";
+
+
     return (
         <div className='card text-white bg-dark border border-ingo'>
-            <div className='card-header lead'>A photo from pexels</div>
+            <div className='card-header lead'>{cartTitle}</div>
             <div className='card-body'>
                 <ImageHelper product={product} />
-                <p className='lead bg-success font-weight-normal text-warp'>A nice photo</p>
-                <p className='btn btn-success rounded btn-sm px-4'>$5</p>
+                <p className='lead bg-success font-weight-normal text-warp'>{cartDescription}</p>
+                <p className='btn btn-success rounded btn-sm px-4'>${cartPrice}</p>
                 <div className='row'>
                     <div className='col-12'>
                         <button
