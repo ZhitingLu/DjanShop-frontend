@@ -30,7 +30,7 @@ const Home = () => {
     }, []);
 
     return (
-        <Base title="Cat T-shirts" description="Welcome to my store" >
+        <Base title="Cat T-shirts" description="Welcome to my store 😽👕" >
             <h1>Home component</h1>
             <div className='row'>
                 {products.map((product, index) => {
