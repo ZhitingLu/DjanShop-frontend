@@ -36,7 +36,7 @@ const Home = () => {
                 {products.map((product, index) => {
                     return (
                         <div key={index} className='col-4 mb-4'>
-                           <Card product={product} />
+                            <Card product={product} />
                         </div>
                     )
                 })}
