@@ -1,14 +1,14 @@
 import React from 'react';
 import ImageHelper from './helper/imageHelper';
 import { Navigate } from 'react-router-dom';
-import { addItemToCart } from './helper/cartHelper';
+import { addItemToCart, removeItemFromCart } from './helper/cartHelper';
 
 let isAuthenticated = true;
 
 const Card = ({
     product,
     // addToCart = true,
-    removeFromCart = false,
+    removeFromCart = true,
 }) => {
     const cartTitle = product ? product.name : "A photo";
     const cartDescription = product ? product.description : "A photo of the product";
@@ -47,7 +47,9 @@ const Card = ({
             removeFromCart && (
                 <button
                     onClick={() => {
-                        //TODO: handle this too
+                        // Both product.id and product._id are supported 
+                        // _id is a common convention for the primary key if you are working with databases as MongoDB
+                        removeItemFromCart(product._id);
                         console.log('Product removed from cart');
                     }}
                     className="btn btn-block btn-outline-danger mt-2 mb-2">
