@@ -19,6 +19,18 @@ const Signup = () => {
         setValues({ ...values, error: false, [name]: event.target.value });
     }
 
+    const onSubmit = (event) => {
+        event.preventDefault();
+        setValues({ ...values, error: false });
+        signup({ name, email, password })
+            .then((data) => {
+                console.log("DATA", data);
+            })
+            .catch(e => {
+                console.log(e)
+            })
+    }
+
     const signupForm = () => {
         return <div className='row'>
             <div className='col-md-6 offset-sm-3 text-left'>
@@ -47,7 +59,11 @@ const Signup = () => {
                             onChange={handleChange("password")}
                             type="password" />
                     </div>
-                    <button className='btn btn-success btn-block mt-3'>Submit</button>
+                    <button
+                        onClick={onSubmit}
+                        className='btn btn-success btn-block mt-3'>
+                        Submit
+                    </button>
                 </form>
             </div>
         </div>
@@ -56,6 +72,9 @@ const Signup = () => {
     return (
         <Base title="Sign Up Page" description='A signup for user' >
             {signupForm()}
+            <p className='text-white text-center'>
+                {JSON.stringify(values)}
+            </p>
         </Base>
     )
 }
