@@ -103,7 +103,8 @@ const Signup = () => {
                     </div>
                     <button
                         onClick={onSubmit}
-                        className='btn btn-success btn-block mt-3'>
+                        type="button"
+                        className='btn btn-success w-100 mt-3'>
                         Submit
                     </button>
                 </form>
