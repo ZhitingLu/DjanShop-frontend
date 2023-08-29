@@ -10,7 +10,7 @@ const Base = ({
 }) => {
     return (
         <div>
-            <div className='mb-2 bg-dark'>
+            <div className='pb-2 bg-dark'>
                 <div className='jumbotron bg-dark text-white text-center'>
                     <h2 className='display-6 pt-4 text-warning'>{title}</h2>
                     <p className='lead text-white'>{description}</p>
