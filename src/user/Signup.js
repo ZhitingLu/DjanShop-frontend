@@ -53,7 +53,7 @@ const Signup = () => {
                 <div className='col-md-6 offset-sm-3 text-left'>
                     <div className='alert alert-success'
                     style={{display: success ? "" : "none"}}>
-                        New account created successfully. Please login now.
+                        New account created successfully. Please <Link to="/signin">login now.</Link>
                     </div>
                 </div>
             </div>
