@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import Base from '../core/Base';
 import { Link } from 'react-router-dom';
+import { authenticate, signin } from '../auth/helper';
 
 const Signin = () => {
 
     const [values, setValues] = useState({
         name: "",
-        email: "",
-        password: "",
+        email: "nine@gmail.com",
+        password: "meow1234",
         error: "",
         success: false,
         loading: false,
@@ -23,6 +24,27 @@ const Signin = () => {
             error: false,
             [name]: event.target.value
         });
+    }
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+        setValues({
+            ...values,
+            error: false,
+            loading: true
+        });
+
+        signin({email, password})
+        .then(data => {
+            console.log("DATA", data);
+            if (data.token) {
+                let sessionToken = data.token;
+                authenticate(sessionToken, () => {
+                    console.log("TOKEN ADDED")
+                })
+            }
+        })
+        .catch(error => console.log(error))
     }
 
     const successMessage = () => {
@@ -72,7 +94,7 @@ const Signin = () => {
                             type="password" />
                     </div>
                     <button
-                        // onClick={}
+                        onClick={onSubmit}
                         type="button"
                         className='btn btn-success w-100 mt-3'>
                         Submit
